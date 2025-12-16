@@ -1,0 +1,71 @@
+THEME CONFIGURATION
+==================================
+
+COLORS
+------
+-- Base
+background: #121417
+surface: #1E2329
+divider: #2A2F36
+
+-- Text
+text-primary: #E6E8EB
+text-secondary: #8A9099
+text-disabled: #5F656D
+
+-- Accent
+accent-primary: #4FA3A5
+accent-secondary: #C2A25D
+accent-hover: accent-primary +6-8% luminance
+
+TYPOGRAPHY
+----------
+font-primary: Inter / SF Pro / IBM Plex Sans
+font-accent: Instrument Sans / Space Grotesk (optional)
+
+font-sizes:
+base: 16px
+small: 13-14px
+body-large: 18px
+h1: 36-40px
+h2: 28-32px
+h3: 22-24px
+
+font-weights:
+regular: 400
+medium: 500
+semibold: 600
+bold: 700 (rare)
+
+line-height:
+body: 1.5-1.6
+headings: 1.2-1.3
+
+SPACING & LAYOUT
+----------------
+spacing-unit: 8px
+
+spacing-scale:
+xs: 4px
+s: 8px
+m: 16px
+l: 24px
+xl: 32px
+section-gap: 48-64px
+
+max-content-width: 1100-1200px
+grid: 12-column / flexible CSS grid
+
+INTERACTION
+-----------
+hover-transition: 120-160ms ease-out
+focus-state: teal outline/glow at 40-60% opacity
+active-state: teal darken or smoked amber
+
+BORDERS & MOTION
+----------------
+border-radius: 6-8px
+border-width: 1px
+
+motion:
+entrance: subtle fade + 2-4px translate

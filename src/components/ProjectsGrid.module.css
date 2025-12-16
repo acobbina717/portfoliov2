@@ -1,0 +1,19 @@
+.projectCardWrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.projectCardWrapper[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .projectCardWrapper {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,126 @@
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: 40px;
+  position: relative;
+}
+
+.titleUnderline {
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary)
+  );
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.formContainer {
+  background: var(--color-surface);
+  border-color: var(--color-divider);
+  transition: all 150ms ease-out;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.formContainer:hover {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 8px 24px rgba(79, 163, 165, 0.1);
+}
+
+.label {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input {
+  background: rgba(18, 20, 23, 0.5);
+  border-color: var(--color-divider);
+  color: var(--color-text-primary);
+  transition: all 150ms ease-out;
+}
+
+.input:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 2px rgba(79, 163, 165, 0.1);
+}
+
+.submitButton {
+  transition: all 150ms ease-out;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 163, 165, 0.3);
+}
+
+.successAlert {
+  animation: slideInDown 0.4s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.socialIcon {
+  transition: all 150ms ease-out;
+}
+
+.socialIcon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(79, 163, 165, 0.2);
+}
+
+.contactInfo {
+  padding: 24px;
+  background: rgba(79, 163, 165, 0.05);
+  border-radius: 8px;
+  border: 1px solid var(--color-divider);
+}
+
+.contactInfo strong {
+  color: var(--color-accent-primary);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .socialIcon {
+    size: 48px;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .formContainer {
+    animation: none;
+  }
+
+  .formContainer:hover,
+  .submitButton:hover,
+  .socialIcon:hover {
+    transform: none;
+  }
+
+  .successAlert {
+    animation: none;
+  }
+}

@@ -1,0 +1,155 @@
+/* ProjectCard Component Styles */
+
+.card {
+  background-color: var(--color-surface);
+  border-color: var(--color-divider);
+  transition: all 150ms ease-out;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(79, 163, 165, 0.2);
+  border-color: var(--color-accent-primary);
+}
+
+.imageSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  transition: transform 300ms ease-out;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 163, 165, 0.9),
+    rgba(194, 162, 93, 0.9)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.overlayLink {
+  background-color: white;
+  color: var(--color-accent-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease-out;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.card:hover .overlayLink {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.overlayLink:hover {
+  transform: scale(1.1) translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  transition: color 150ms ease-out;
+}
+
+.card:hover .title {
+  color: var(--color-accent-primary);
+}
+
+.description {
+  line-height: 1.6;
+}
+
+.techStack {
+  min-height: 32px;
+}
+
+.badge {
+  transition: all 150ms ease-out;
+}
+
+.card:hover .badge {
+  transform: translateY(-2px);
+}
+
+.links {
+  padding-top: 8px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.link {
+  font-weight: 500;
+  transition: all 150ms ease-out;
+  position: relative;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-primary);
+  transition: width 150ms ease-out;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .card:hover .image,
+  .card:hover .badge,
+  .overlayLink,
+  .overlayLink:hover {
+    transform: none;
+  }
+
+  .imageOverlay {
+    transition: none;
+  }
+}

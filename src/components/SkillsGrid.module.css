@@ -1,0 +1,33 @@
+.categoryCard {
+  background: var(--color-surface);
+  border-color: var(--color-divider);
+  transition: all 150ms ease-out;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.categoryCard:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(79, 163, 165, 0.15);
+}
+
+.skillBadge {
+  transition: all 150ms ease-out;
+  cursor: default;
+}
+
+.skillBadge:hover {
+  transform: translateY(-2px);
+  background: rgba(79, 163, 165, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categoryCard {
+    animation: none;
+  }
+
+  .categoryCard:hover,
+  .skillBadge:hover {
+    transform: none;
+  }
+}

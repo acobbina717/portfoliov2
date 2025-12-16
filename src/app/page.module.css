@@ -1,0 +1,30 @@
+.projectsSection {
+  padding: 80px 0;
+}
+
+.sectionTitle {
+  font-size: 40px;
+  position: relative;
+}
+
+.titleUnderline {
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary)
+  );
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 64px 0;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+}

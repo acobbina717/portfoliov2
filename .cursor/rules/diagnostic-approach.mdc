@@ -1,0 +1,89 @@
+---
+description: General problem-solving approach - ask first, keep it simple
+alwaysApply: true
+---
+
+# Diagnostic Approach: Ask, Simplify, Verify
+
+## Core Principles
+
+### 1. Ask Questions Before Providing Solutions
+
+ALWAYS gather context first:
+- What's the actual error message?
+- **What browser/environment are you using?**
+- **Does it work in incognito/private mode?**
+- **Do you have any browser extensions installed?**
+- What code is involved?
+- What has already been tried?
+- What's the expected vs actual behavior?
+
+Don't jump to conclusions based on partial information or assumptions.
+
+### 2. Start with the Simplest Solution
+
+Prefer simple over complex:
+- **Environment check (browser, extensions, incognito) > code changes**
+- One-line fix > configuration change
+- Configuration change > version downgrade  
+- Version downgrade > architecture rewrite
+
+### 3. Verify Assumptions
+
+Before suggesting major changes:
+- **Check the environment first (browser extensions are a common cause of cryptic React errors)**
+- Ask to see the relevant code
+- Confirm versions and setup
+- Check if simpler solutions were tried
+- Don't assume version incompatibility
+- Don't suggest rewrites without investigation
+
+## Problem-Solving Flow
+
+1. READ the error/issue carefully
+2. ASK clarifying questions
+3. **CHECK environment (browser, extensions, incognito mode)**
+4. GATHER context (code, versions, setup)
+5. CONSIDER simple solutions first
+6. SUGGEST the minimal fix
+7. ESCALATE complexity only if needed
+
+## Common Environment Issues
+
+### Browser Extensions
+- **MetaMask, crypto wallets**: Inject scripts that can cause "[object Object]" errors in React
+- **Ad blockers**: Can block legitimate requests or scripts
+- **Developer tools extensions**: May interfere with React DevTools or debugging
+- **Always test in incognito/private mode** to rule out extension conflicts
+
+### Browser-Specific Issues
+- Test in multiple browsers (Chrome, Firefox, Safari, Brave)
+- Check browser console for extension-related errors
+- Verify if issue persists without extensions
+
+## Red Flags (You're Over-Complicating)
+
+Stop if you're suggesting:
+- **Code refactoring before checking the browser environment**
+- Version downgrades without seeing code
+- Architecture changes for simple errors
+- Multiple file changes when one might work
+- Complex workarounds before obvious fixes
+
+## Golden Rules
+
+1. Ask > Assume
+2. **Environment > Code**
+3. Simple > Complex
+4. Verify > Theorize
+5. Minimal > Comprehensive
+
+## Self-Check
+
+Before responding, ask yourself:
+- **Did I ask about the browser and extensions?**
+- **Did I suggest testing in incognito mode?**
+- Did I ask to see the relevant code?
+- Did I verify my assumptions?
+- Is this the simplest possible solution?
+- Would a 1-line fix work instead?

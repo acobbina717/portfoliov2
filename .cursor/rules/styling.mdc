@@ -1,0 +1,244 @@
+---
+description: Project styling guidelines and Mantine integration
+alwaysApply: false
+---
+
+# Styling Guidelines
+
+## Mantine UI Library
+
+This project uses Mantine v8 for UI components.
+
+**For Mantine documentation, use `@Docs` with**: `https://mantine.dev/llms.txt`
+
+## Design System
+
+Complete design specifications are documented in `docs/design-system.txt` - this is the source of truth for all design decisions.
+
+Theme implementation lives in `src/theme.ts` and follows minimal override philosophy: only customize what differs from Mantine defaults.
+
+## Color Palette
+
+### Base Colors (Dark Theme)
+
+- **Background**: `#121417` - Primary dark background
+- **Surface**: `#1E2329` - Elevated surface (cards, modals)
+- **Divider**: `#2A2F36` - Borders and dividers
+
+### Text Hierarchy
+
+- **Primary**: `#E6E8EB` - Main text content
+- **Secondary**: `#8A9099` - Supporting text, labels
+- **Disabled**: `#5F656D` - Disabled state text
+
+### Accent Colors (Semantic Usage)
+
+- **Teal** (`#4FA3A5`): Primary actions, CTAs, links, focus states, interactive elements
+- **Amber** (`#C2A25D`): Secondary accents, highlights, warnings, special elements
+- **Hover States**: Apply +6-8% luminance to accent colors
+
+### Color Usage Rules
+
+1. **Always use teal for**:
+
+   - Primary buttons and CTAs
+   - Active navigation items
+   - Links and interactive text
+   - Focus rings and outlines
+   - Progress indicators
+
+2. **Use amber for**:
+
+   - Warning states
+   - Secondary highlights
+   - Special badges or tags
+   - Accent decorations
+
+3. **Never**:
+   - Hardcode color values in components
+   - Use colors not defined in theme
+   - Mix accent colors without clear hierarchy
+
+## Typography
+
+### Font Families
+
+- **Body Text**: Inter, SF Pro, IBM Plex Sans (system fallbacks)
+- **Headings**: Instrument Sans, Space Grotesk (optional accent fonts)
+
+### Font Scale
+
+Use Mantine's default font sizes for body text (xs, sm, md, lg, xl).
+
+Custom heading sizes:
+
+- **H1**: 36-40px
+- **H2**: 28-32px
+- **H3**: 22-24px
+
+### Font Weights
+
+- **Regular** (400): Body text
+- **Medium** (500): Emphasis, labels
+- **Semibold** (600): Headings, important UI text
+- **Bold** (700): Rare, only for extreme emphasis
+
+### Typography Rules
+
+1. Use theme font sizes, not hardcoded pixel values
+2. Maintain line-height: 1.5-1.6 for body, 1.2-1.3 for headings
+3. Keep hierarchy clear: don't skip heading levels
+
+## Spacing & Layout
+
+### 8px Base Unit System
+
+**CRITICAL**: All spacing must use 8px increments:
+
+- **xs**: 4px (half unit, rare)
+- **sm**: 8px (base unit)
+- **md**: 16px (2 units)
+- **lg**: 24px (3 units)
+- **xl**: 32px (4 units)
+- **Section gaps**: 48-64px
+
+### Spacing Rules
+
+1. **Always** use theme spacing tokens (`theme.spacing.md`)
+2. **Never** use arbitrary pixel values like 15px, 23px
+3. Stack elements with consistent spacing
+4. Use section-gap (48-64px) between major layout sections
+
+### Layout Standards
+
+- **Max content width**: 1100-1200px for readability
+- **Grid system**: 12-column or flexible CSS grid
+- **Responsive**: Mobile-first with Mantine breakpoints
+
+## Component Selection
+
+### Prefer Mantine Components
+
+1. **Always check Mantine first** before creating custom components
+2. Use Mantine's `@mantine/core` components for:
+
+   - Buttons, inputs, forms
+   - Navigation (AppShell, Navbar, Header)
+   - Data display (Table, Card, Paper)
+   - Overlays (Modal, Drawer, Popover)
+   - Feedback (Notification, Alert, Progress)
+
+3. **Only create custom components when**:
+   - Mantine doesn't provide the pattern
+   - Significant customization beyond Styles API
+   - Complex domain-specific logic
+
+### Component Styling Approach
+
+1. **First**: Try Mantine props (color, size, variant)
+2. **Second**: Use Mantine Styles API for customization
+3. **Third**: Use CSS Modules for component-specific styles
+4. **Last resort**: Custom CSS with theme variables
+
+## Interaction Standards
+
+### Transitions
+
+- **Hover**: 120-160ms ease-out (Mantine default 150ms is perfect)
+- Keep transitions subtle and consistent
+- Don't animate layout properties (expensive)
+
+### Focus States
+
+- **Always visible**: Teal outline/glow at 40-60% opacity
+- Use Mantine's focus-ring utilities
+- Never remove focus styles (accessibility)
+
+### Active States
+
+- Teal darken for primary actions
+- Smoked amber for secondary actions
+- Provide clear visual feedback
+
+### Motion
+
+- **Entrance animations**: Subtle fade + 2-4px translate
+- Keep animations under 300ms
+- Respect `prefers-reduced-motion`
+
+## Best Practices
+
+### DO
+
+✓ Use Mantine components as foundation
+✓ Reference theme tokens for colors, spacing, typography
+✓ Maintain 8px spacing grid strictly
+✓ Write semantic, accessible HTML
+✓ Test dark mode appearance
+✓ Use teal for primary interactive elements
+✓ Keep hover states consistent (120-160ms)
+✓ Provide clear focus indicators
+
+### DON'T
+
+✗ Hardcode colors or spacing values
+✗ Create custom components before checking Mantine
+✗ Use arbitrary spacing (15px, 23px, etc.)
+✗ Mix multiple accent colors without hierarchy
+✗ Remove focus outlines
+✗ Skip responsive considerations
+✗ Use bold weight (700) excessively
+✗ Create heavy animations (>300ms)
+
+## Code Examples
+
+### Good: Using Theme Tokens
+
+```tsx
+import { Box, Button } from "@mantine/core";
+
+<Box p="md" bg="dark.7">
+  <Button color="teal" size="md">
+    Primary Action
+  </Button>
+</Box>;
+```
+
+### Bad: Hardcoded Values
+
+```tsx
+// DON'T DO THIS
+<div style={{ padding: "15px", background: "#1E2329" }}>
+  <button style={{ color: "#4FA3A5" }}>Click</button>
+</div>
+```
+
+### Good: 8px Spacing Grid
+
+```tsx
+<Stack gap="md">
+  {" "}
+  {/* 16px */}
+  <Text>First item</Text>
+  <Text>Second item</Text>
+</Stack>
+```
+
+### Bad: Arbitrary Spacing
+
+```tsx
+// DON'T DO THIS
+<div style={{ marginBottom: "23px" }}>Content</div>
+```
+
+## Implementation Reference
+
+When implementing features:
+
+1. Review `docs/design-system.txt` for specifications
+2. Check `src/theme.ts` for available theme tokens
+3. Use Mantine components from `@mantine/core`
+4. Apply theme values, never hardcode
+5. Test in dark mode
+6. Verify 8px spacing alignment
+7. Ensure accessibility (focus states, semantic HTML)
